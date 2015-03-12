@@ -14,6 +14,8 @@ using namespace std;
 
 PREFIXE :: PREFIXE()
 {
+    stack<char> Pile;
+    vector<char>Tableau;
 }
 bool PREFIXE :: lecture(vector<char> Tableau)
 {
@@ -130,24 +132,70 @@ void PREFIXE:: transformerennombres (vector <char> Tableau)
 		}
 		cout << Tableau[i];
     }
-    /* J'ai essayé la focntion atoi. Elle reconnait un nombre meme chacun de ses chiffres est sur un digit.
+    /* J'ai essayé la fonction atoi. Elle reconnait un nombre meme chacun de ses chiffres est sur un digit.
     Par exemple, si on a : tableau[0]= 2, tableau[1]= 5 et tableau[2]= 5. Dès qu'elle arrive à tableau[0]
-    elle a lire 255 et ensuite ça ressort comme ça : tableau[0]= 255, tableau[1]= 5 et tableau[2]= 5.
+    elle va lire 255 et ensuite ça ressort comme ça : tableau[0]= 255, tableau[1]= 5 et tableau[2]= 5.
     Faudrait supprimer les digits qui suivent j'y travaille. */
+    /* WTF, on dirait qu'elle lit tout d'un coup et après elle tout séparément */
+}
+void PREFIXE:: transformerenpostfixe(stack<char> Pile, vector<char> Tableau)
+{
+    stack <char> operande;
+    stack<char> operateur;
+    stack<char> resultat;
+    for (int i = 0; i < Tableau.size();i++)
+    {
+        if (Tableau[i]>='0' && Tableau[i] <= '9') {
+            operande.push(Tableau[i]);// Ajoute un élément à la pile operande comme 3, 4, 5,6,
+            Tableau.pop_back(); // supprime un element de la chaine tableau
+        }
+        else
+        {
+            operateur.push(Tableau[i]); // Ajoute un element à la pile des operateur +,-,\,%
+            Tableau.pop_back(); // supprime un element de la chaine tableau
+        }
+    }
+    
+    for (int i =0; i < operateur.size(); i++)
+    {
+        Tableau.push_front(operateur(i)); // ajoute l'opérateur au tableau après les 2 operande
+            for (i=0; i< operande.size(); i++)
+            {
+                Tableau.push_front(operande(i)); // Nous devons faire quelque chose comme ça. pour mettre deux operande avant l'operateur.
+                Tableau.push_front(operande(i+1)); // le plus +1 est pour aller chercher l'élément suivant
+            }
+    }
+    
+    /*Lorsque l'interpréteur rencontre un opérande, il l'empile. Lorsqu'il rencontre un opérateur, il l'exécute
+     sur les opérandes empilés et met le résultat de l'opération sur la pile. Ainsi, quand il rencontre
+     l’opérateur add, il prend les deux nombres du haut de la pile et les remplace par leur somme. Il fait de
+     même pour la multiplication avec l’opérateur mul. La pile aura donc successivement le contenu suivant :
+     Par exemple :
+     
+     14 + 4 s'écrit : 14 4 +
+     (98 + 11)* 6 s'écrit : 98 11 + 6 *
+     -75 s'écrit : 75-
+     */
 }
 
+int PREFIXE :: evaluer_expression(stack<char> Pile, vector<char> Tableau)
+{
+    // Il faut peut-être mettre les opérateurs dans une pile et laisser les opérande dans un tableau.
+    // et à la fin nous avons juste à dépilé la pile et le tableau. Il est maintenant l'heure d'aller en cours.
+    // À tanto ..
+}
 int main()
 {
-    PREFIXE premier;
+    PREFIXE premier; // Création de nôtre object
     string entre;
-    vector <char> expression;
+    vector <char> expression; // Tableaux pour nôtre structure de donné
     
     cout << "Entrer une équations";
     cin >> entre;
     
     // pour faire appel au fonction on a besion d'un tableau
-    for(int i =0; i<entree.size(); i++) {
-		expression.push_back(entree[i]);
+    for(int i =0; i<entre.size(); i++) {
+		expression.push_back(entre[i]);
 	}
 
 	if (premier.lecture(expression))
