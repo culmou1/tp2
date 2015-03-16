@@ -163,15 +163,15 @@ int Prefixe:: evaluer_expression(stack<string> prefixe, vector<string> infixe)
 /* -------------------------------------------------------------------------------*/
 int main(void)
 {
-    Prefixe premier; // Constructeur
-    string entree;
+    	Prefixe premier; // Constructeur
+    	string entree;
 	int i = 0;
-    vector <string> expression;
+	vector <string> expression;
 	stack <string> prefixe;
     
-    cout << "Entrer une équation : ";
-    cin >> entree;
-   while ( i < entree.size()) {
+    	cout << "Entrer une équation : ";
+    	cin >> entree;
+    	while ( i < entree.size()) {
 	   string temp;
 	   if (entree[i]>= '0' && entree[i] <= '9') {
 		   while (entree[i]>= '0' && entree[i] <= '9') {
@@ -189,23 +189,25 @@ int main(void)
 
 	if (premier.lecture(expression)) // Valide l'expression
 		cout << endl << "L'expression est bonne" << endl; // Retourne true
-    else {
+	 else {
 		cout << endl << "Il y a des caractères que je ne connais pas" << endl;
-        return -1;
-    }
+        	return 0;
+    	}
 
-    if (premier.valider_expression(expression)){ // Vérifié les parenthèse
-	   cout << endl << "Le nombre parenthèse est correct: " << endl; // Retourne true
-        cout << "*----------------Équation Préfixe----------------*" << endl;
-       premier.transformerenprefixe (&prefixe, expression); // Transforme l'équation en Prefixe
-        cout << endl << "*----------------Résultats----------------*" << endl;
-        cout << premier.evaluer_expression (prefixe, expression) << endl;
-    }
-    else
-	   cout << endl << "L'expression manque de parentheses" << endl; // Retourne false
-    
-	system ("pause");
+    	if (premier.valider_expression(expression)){ // Vérifié les parenthèse
+	   	cout << endl << "Le nombre parenthèse est correct: " << endl; // Retourne true
+        	cout << "*----------------Équation Préfixe----------------*" << endl;
+       		premier.transformerenprefixe (&prefixe, expression); // Transforme l'équation en Prefixe
+	 	cout << endl << "*----------------Résultats----------------*" << endl;
+        	cout << premier.evaluer_expression (prefixe, expression) << endl;
+    	}
+    	else
+	   	cout << endl << "L'expression manque de parentheses" << endl; // Retourne false
+    	
+    	system ("pause");
+    	return 0;
 }
+
 /* -----------------------------------------------------------------------------------*/
 /* DESCRIPTION :      Fonction estOperateur                                             */
 /* PARAMETRES :		  string t                                                          */
