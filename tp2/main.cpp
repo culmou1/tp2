@@ -20,8 +20,12 @@ Prefixe::~Prefixe () {
 	delete Tableau;
 }
 
+<<<<<<< Updated upstream
 
 bool Prefixe :: lecture(vector<string> infixe)
+=======
+bool Prefixe :: lecture(vector<string> tableau)
+>>>>>>> Stashed changes
 {
     bool lectureToken =false; // Vérifie si les caractères sont OK
     
@@ -55,11 +59,20 @@ bool Prefixe :: valider_expression (vector<string> infixe)
       return false;
 }
 
+<<<<<<< Updated upstream
 void Prefixe::transformerennombres (vector<string> tokens)
+=======
+int Prefixe:: transformerennombres (vector <string> tableau)
+>>>>>>> Stashed changes
 {
     for (int i=tokens.size()-1; i >= 0; i--) {
 		Tableau->push_back (stoi (tokens[i]));
 	}
+<<<<<<< Updated upstream
+=======
+    return  operande;
+   
+>>>>>>> Stashed changes
     /* J'ai essayé la focntion atoi. Elle reconnait un nombre meme chacun de ses chiffres est sur un digit.
     Par exemple, si on a : tableau[0]= 2, tableau[1]= 5 et tableau[2]= 5. Dès qu'elle arrive à tableau[0]
     elle a lire 255 et ensuite ça ressort comme ça : tableau[0]= 255, tableau[1]= 5 et tableau[2]= 5.
@@ -119,6 +132,7 @@ void Prefixe:: transformerenprefixe(stack<string> *prefixe, vector<string> infix
         
 int Prefixe:: evaluer_expression(stack<string> prefixe, vector<string> infixe)
 {
+<<<<<<< Updated upstream
     vector <string> tableau_to_convert; 
 	stack <int> Resultat;
 	int tempG, tempD;
@@ -150,9 +164,12 @@ int Prefixe:: evaluer_expression(stack<string> prefixe, vector<string> infixe)
 		tableau_to_convert.clear();
 	}
 	return Resultat.top();
+=======
+    
+>>>>>>> Stashed changes
 }
 
-void main()
+int main(void)
 {
     Prefixe premier;
     string entree;

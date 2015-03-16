@@ -26,7 +26,11 @@ class Prefixe {
 		opérateurs cités ci-dessus.*/
 		bool valider_expression (std::vector<std::string> infixe); 
 		/* teste si l’expression est bien définie (le nombre de parenthèses ouvrantes et fermantes est le même).*/
+<<<<<<< Updated upstream
 		void transformerennombres (std::vector<std::string> tokens); 
+=======
+		int transformerennombres (std::vector <std::string> tableau);
+>>>>>>> Stashed changes
 		/* transforme les nombres lus encaractères en valeurs numériques*/
 		void transformerenprefixe(std::stack<std::string> *prefixe, std::vector<std::string> infixe);
 		/*transforme l’expression lue en une expression prefixée et l’afficher.*/
