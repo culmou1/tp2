@@ -2,7 +2,7 @@
 //  Header.h
 //  tp2
 //
-//  Created by Daehli Nadeau Otis on 2015-02-27.
+//  Created by Daehli Nadeau Otis & Gillian Chaville on 2015-02-27.
 //  Copyright (c) 2015 Daehli Nadeau-Otis. All rights reserved.
 //
 
@@ -26,11 +26,7 @@ class Prefixe {
 		opérateurs cités ci-dessus.*/
 		bool valider_expression (std::vector<std::string> infixe); 
 		/* teste si l’expression est bien définie (le nombre de parenthèses ouvrantes et fermantes est le même).*/
-<<<<<<< Updated upstream
-		void transformerennombres (std::vector<std::string> tokens); 
-=======
-		int transformerennombres (std::vector <std::string> tableau);
->>>>>>> Stashed changes
+		void transformerennombres (std::vector<std::string> tokens);
 		/* transforme les nombres lus encaractères en valeurs numériques*/
 		void transformerenprefixe(std::stack<std::string> *prefixe, std::vector<std::string> infixe);
 		/*transforme l’expression lue en une expression prefixée et l’afficher.*/
