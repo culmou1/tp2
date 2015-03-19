@@ -4,4 +4,5 @@ Programme qui transforme et évalue une expression dite infixe (3+3) en équatio
 
 Nous avons fait ce programme dans nôtre cours de Stucture de donnée.
 
+#Infixe en Préfixe
 
