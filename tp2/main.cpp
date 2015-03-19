@@ -3,7 +3,6 @@
 #include "Header.h"
 #include <string>
 #include <cstdlib>
-#include <sstream>
 using namespace std;
 
 /*----------------Function----------------*/
